@@ -14,6 +14,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 
     <title>Profile</title>
@@ -22,18 +23,40 @@
 <body>
 
     <header>
-        <nav class="navbar">
-            <a href="{% url 'home' %}" class="logo">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a href="{% url 'home' %}" class="navbar-brand">
                 <img src="{% static 'Logo/logo.svg' %}" alt="test logo" />
             </a>
-            <a class="profile-icon-link-container" href="{% url 'logout' %}">
-                <div class="header-logout">Logout</div>
-            </a>
-            <a class="profile-icon-link-container" href="{% url 'profile' %}">
-                <img src="{{user.profile.profile_img.url}}" alt="profile-icon">
-                <span class="header-username">Hello, {{user}}</span>
-            </a>
+
+
+            <div class="dropdown">
+                <div id="userProfileDropDown" class="Navbar_userDropdown" data-toggle="dropdown">
+                    <div height="24px" width="24px" font-size="12px" class="sc-giImIA cmarCr">PS</div>
+                    <div class="Navbar_userName__33i8V">{{user.profile.name}}</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="Navbar_downArrowIcon__vr0f9">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu"
+                    aria-labelledby="userProfileDropDown">
+                    <a class="dropdown-item" href="{% url 'profile' %}">
+                        <img src="{% static 'Logo/user.svg' %}" width="25px" alt="user" />
+                        Edit Profile</a>
+                    <a class="dropdown-item" href="#">
+                        <img src="{% static 'Logo/settings.svg' %}" width="25px" alt=" settings" />
+
+                        Account Settings</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">
+                        <img src="{% static 'Logo/logout.svg' %}" width="25px" alt="logout" />
+
+                        Logout</a>
+                </div>
+            </div>
         </nav>
+
     </header>
 
     <main class="main-container">
@@ -62,10 +85,11 @@
                         {{form.desc}}
                     </li>
                 </ul>
-                <button class="profile-save-button"> Save </button>
+                <button class="btn"> Save </button>
             </div>
         </form>
     </main>
+    <script src="{% static 'js/index.js' %}"></script>
 
     <script>
 

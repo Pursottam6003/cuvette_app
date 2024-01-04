@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background: #fde073;
+    background: #e3d9b3;
     text-align: center;
     line-height: 2.5;
     overflow: hidden;
@@ -35,7 +35,7 @@
     margin-top: 1.5em;
     width: 70%;
     padding: .8em;
-    background-color: #FFD13A;
+    background-color: #5799c5;
     border: none;
     border-radius: 3px;
     font-size: 1em;
@@ -48,7 +48,7 @@
     margin-top: 1.5em;
     width: 70%;
     padding: .8em;
-    background-color: #FFD13A;
+    background-color: rgb(255, 255, 104);
     border: none;
     border-radius: 3px;
     font-size: 1em;
@@ -131,7 +131,7 @@
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
     .user-profile-form-container {
         margin: 2em auto;
     }

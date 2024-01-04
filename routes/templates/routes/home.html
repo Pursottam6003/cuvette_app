@@ -4,11 +4,11 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
@@ -16,9 +16,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
     <title>Home</title>
+
+
 </head>
 
 <body>
@@ -32,7 +33,7 @@
 
 
             <div class="dropdown">
-                <div id="userProfileDropDown" class="Navbar_userDropdown dropdown-toggle" data-toggle="dropdown">
+                <div id="userProfileDropDown" class="Navbar_userDropdown" data-toggle="dropdown">
                     <div height="24px" width="24px" font-size="12px" class="sc-giImIA cmarCr">PS</div>
                     <div class="Navbar_userName__33i8V">{{user.profile.name}}</div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -44,14 +45,14 @@
                 <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu"
                     aria-labelledby="userProfileDropDown">
                     <a class="dropdown-item" href="{% url 'profile' %}">
-                        <img src="{% static 'Logo/user.svg' %}" alt="user" />
+                        <img src="{% static 'Logo/user.svg' %}" width="25px" alt="user" />
                         Edit Profile</a>
                     <a class="dropdown-item" href="#">
-                        <img src="{% static 'Logo/settings.svg' %}" alt="settings" />
+                        <img src="{% static 'Logo/settings.svg' %}" width="25px" alt=" settings" />
 
                         Account Settings</a>
-                    <a class="dropdown-item" href="#">
-                        <img src="{% static 'Logo/logout.svg' %}" alt="logout" />
+                    <a class="dropdown-item" href="{% url 'logout' %}">
+                        <img src="{% static 'Logo/logout.svg' %}" width="25px" alt="logout" />
 
                         Logout</a>
                 </div>
@@ -85,19 +86,21 @@
             <div class="profile-photo-container">
                 <img src="{{user.profile.profile_img.url}}" alt="User Image" width="100px" srcset="">
             </div>
-
-
             <div class="user-content-container">
                 <p class="username">{{user.profile.name}}</p>
                 <p class="user-title">{{user.profile.title}}</p>
                 <p class="user-desc">{{user.profile.desc}}</p>
                 <div class="profile-edit-link-container">
-                    <a href="{% url 'profile' %}">Edit</a>
+                    <img src="{% static 'Logo/edit.svg' %}" width="25px" alt="edit" />
+                    <a href="{% url 'profile' %}">
+                        Edit</a>
                 </div>
             </div>
         </div>
 
     </main>
+
+    <script src="{% static 'js/index.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
