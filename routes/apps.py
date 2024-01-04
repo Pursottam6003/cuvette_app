@@ -1,9 +1,9 @@
 from django.apps import AppConfig
 
 
-class AuthConfig(AppConfig):
+class RoutesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'auth'
+    name = 'routes'
 
     def ready(self):
-        import auth.signals
+        import routes.signals

@@ -12,7 +12,7 @@ from .decorators import unauthenticated_user
 
 @login_required(login_url='login')
 def index(request):
-    return render(request, 'loginauth/home.html')
+    return render(request, 'routes/home.html')
 
 
 @login_required(login_url='login')
@@ -28,7 +28,7 @@ def profile(request):
     else:
         form = ProfileForm(instance=request.user.profile)
     context = {'form': form}
-    return render(request, 'loginauth/profile.html', context)
+    return render(request, 'routes/profile.html', context)
 
 
 @unauthenticated_user
@@ -46,7 +46,7 @@ def login_user(request):
         else:
             messages.info(request, 'Wrong passwrod or username')
             return redirect('login')
-    return render(request, 'loginauth/login_page.html')
+    return render(request, 'routes/login_page.html')
 
 
 @unauthenticated_user
@@ -62,10 +62,10 @@ def register_user(request):
         else:
             context = {'form': form}
             messages.info(request, 'Invalid credentials')
-            return render(request, 'loginauth/register_page.html', context)
+            return render(request, 'routes/register_page.html', context)
 
     context = {'form': form}
-    return render(request, 'loginauth/register_page.html', context)
+    return render(request, 'routes/register_page.html', context)
 
 
 @login_required(login_url='login')
