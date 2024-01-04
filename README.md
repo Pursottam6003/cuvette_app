@@ -4,6 +4,15 @@ This is a simple Django web application that implements user authentication feat
  
 
 ![Registration Page](Images/profile.png)
+
+
+## Video Demo 
+Google Drive Link : https://drive.google.com/drive/folders/1DIQGVTxOHa4Hxlm0yjx0amx_5QQWAkvS
+
+#### Part 1 : https://drive.google.com/file/d/1G-f6qUOHZEtrH1Z0IfcCbzptvmeI1Np2/view?usp=sharing
+
+#### Part 2: https://drive.google.com/file/d/12EBHE_qhtyzZa90TiwDTvwmJgjOakh-F/view?usp=sharing
+
 ## Objective
 
 Create a Django web application to manage user authentication with features like registration, login, a user dashboard, user profile, and logout.
