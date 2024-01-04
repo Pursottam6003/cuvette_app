@@ -13,6 +13,9 @@
         href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
     <title>Home</title>
@@ -20,13 +23,41 @@
 
 <body>
     <header>
-        <nav class="navbar">
-            <p class="logo">Profile</p>
-            <a class="profile-icon-link-container" href="{% url 'profile' %}">
-                <img src="{% static 'images/default.svg' %}" alt="profile-icon">
-                <span class="header-username">Hello, {{user}}</span>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a href="{% url 'home' %}" class="navbar-brand">
+                <img src="{% static 'Logo/logo.svg' %}" alt="test logo" />
             </a>
+
+
+            <div class="dropdown">
+                <div id="userProfileDropDown" class="Navbar_userDropdown dropdown-toggle" data-toggle="dropdown">
+                    <div height="24px" width="24px" font-size="12px" class="sc-giImIA cmarCr">PS</div>
+                    <div class="Navbar_userName__33i8V">{{user.profile.name}}</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="Navbar_downArrowIcon__vr0f9">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right custom-dropdown-menu"
+                    aria-labelledby="userProfileDropDown">
+                    <a class="dropdown-item" href="{% url 'profile' %}">
+                        <img src="{% static 'Logo/user.svg' %}" alt="user" />
+                        Edit Profile</a>
+                    <a class="dropdown-item" href="#">
+                        <img src="{% static 'Logo/settings.svg' %}" alt="settings" />
+
+                        Account Settings</a>
+                    <a class="dropdown-item" href="#">
+                        <img src="{% static 'Logo/logout.svg' %}" alt="logout" />
+
+                        Logout</a>
+                </div>
+            </div>
         </nav>
+
     </header>
 
     {% if messages %}
@@ -38,6 +69,8 @@
             <img id='cross' src="{% static 'images/close.png' %}" width="15px" height="15px" alt="">
         </div>
     </div>
+
+
     <script>
         var cross = document.getElementById('cross')
         cross.addEventListener('click', () => {
@@ -50,7 +83,7 @@
     <main class="main-container">
         <div class="container">
             <div class="profile-photo-container">
-                <!-- <img src="{{user.profile.profile_img.url}}" alt="User Image" width="100px" srcset=""> -->
+                <img src="{{user.profile.profile_img.url}}" alt="User Image" width="100px" srcset="">
             </div>
 
 
@@ -63,7 +96,17 @@
                 </div>
             </div>
         </div>
+
     </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyE6pHahhjc0zfwanWR5M/PN5U3S2N"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyE6pHahhjc0zfwanWR5M/PN5U3S2N"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

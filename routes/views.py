@@ -32,6 +32,11 @@ def profile(request):
 
 
 @unauthenticated_user
+def layout(request):
+    return render(request, 'routes/layout.html')
+
+
+@unauthenticated_user
 def login_user(request):
 
     if request.method == 'POST':
